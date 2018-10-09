@@ -45,8 +45,7 @@ const tool = {
         var minutes = date.getMinutes();
         var seconds = date.getSeconds();
 
-        if(sec) return (hour + seperator1 + minutes + seperator1 + seconds)
-
+        if (sec) return (hour + seperator1 + minutes + seperator1 + seconds)
         else return (hour + seperator1 + minutes)
     },
 
@@ -57,32 +56,33 @@ const tool = {
     stamapT() {
         return new Date().getTime()
     },
-    
+
+
+   
+
     // 时间戳   ==>   时间 
     // YYYY-MM-DD  res  => 'y-m-d'
     // h:m         res  => 'h:m' 
     // h:m:s       res  => 'h:m:s' 
-    toTime(timestamp,res) {
-        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    toTime(timestamp, res) {
+        var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
         var Y = date.getFullYear() + '-';
-        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
         var D = date.getDate();
         var h = date.getHours() + ':';
         var m = date.getMinutes();
         var s = date.getSeconds();
-        
-        if(res === 'y-m-d') return (Y + M + D)
+
+        if (res === 'y-m-d') return (Y + M + D)
         else if (res === 'h:m') return (h + m)
-        else if(res === 'h:m:s') return (h + m + ':' +s)
+        else if (res === 'h:m:s') return (h + m + ':' + s)
         else return Y + M + D + ' ' + h + m + ':' + s
     },
 
     //时间  =>  时间戳
     toStamap(value) {
-        return value.valueOf()
-    },
-    toStamapT() {
-        value.parse()
+        return Date.parse(value);
     }
 }
-tool.getTime()
+
+
