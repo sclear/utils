@@ -45,7 +45,10 @@ const tool = {
         return currentdate;
     },
 
-    //获取当前时间  H : M       需要秒 传入(任意形参))
+    /**
+     * 获取当前时间  H : M 
+     * @param {*} sec -  需要秒 传入(任意形参)).
+     */
     getTime(sec) {
         let date = new Date();
         let seperator1 = ":";
@@ -65,10 +68,15 @@ const tool = {
         return new Date().getTime()
     },
 
-    // 时间戳   ==>   时间 
-    // YYYY-MM-DD  res  => 'y-m-d'
-    // h:m         res  => 'h:m' 
-    // h:m:s       res  => 'h:m:s' 
+
+    //时间戳  =>  时间
+    /**
+     * @param {number} timestamp - time stamap
+     * @param {string} res       - 
+     *                              YYYY-MM-DD  res  => 'y-m-d'
+     *                              h:m         res  => 'h:m' 
+     *                              h:m:s       res  => 'h:m:s'
+     */ 
     toTime(timestamp, res) {
         let date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
         let Y = date.getFullYear() + '-';
@@ -89,3 +97,4 @@ const tool = {
         return Date.parse(value);
     }
 }
+
